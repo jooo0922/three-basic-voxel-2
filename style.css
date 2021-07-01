@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#ui {
+  /* 투명도 80% 정도의 black 컬러로 타일 버튼들을 감싸는 전체 프레임을 잡아줌. */
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+}
+
+#ui input[type=radio] {
+  /* type이 라디오 버튼인 input 태그들에 대해서만 화면에 안보이도록 함. 왜? 어차피 타일버튼들로 만들어야 하니까 라디오 버튼은 숨겨주는 것*/
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* type이 라디오버튼인 input태그 바로 옆에 존재하는 label 요소에 대해서만 해당 css를 적용하도록 한 것 */
+#ui input[type=radio] + label {
+  background-image: url('./image/flourish-cc-by-nc-sa.png'); 
+  background-size: 1600% 400%;
+  image-rendering: pixelated; /* 위에서 가져온 배경이미지 가로, 세로를 각각 label 요소의 width, height의 16배, 4배로 확대하고 있으므로, 이미지 스케일링 시 "nearest neighbor" 알고리즘을 사용하여 확대시키도록 지정한 것. */
+  width: 64px;
+  height: 64px; /* 배경 이미지는 각각의 16배, 4배로 확대시키지? 그래야 -100%씩 offset 시키면 각 label마다 배경이미지에서 tile 한칸씩만 보이게 될테니까 */
+  display: inline-block; /* 각 label들에 줄바꿈을 강제하지 않음으로써, .tiles 컨테이너 요소 내에 있는 각 8개의 label들끼리는 줄바꿈이 발생하지 않도록 함(inline). 하지만, 고유의 width, height값도 할당해야 하므로(block), inline-block을 할당해준 것. */
+}
+
+#ui input[type=radio]:checked + label {
+  /* 라디오 인풋이 체크 상태인 input 요소 옆에 있는 label에 대해서만 빨간색 경계선을 그려줌 */
+  outline: 3px solid red;
+} 
+
+@media (max-width: 600px), (max-height: 600px) {
+  /* 반응형으로 브라우저의 width가 600px 미만이거나, height이 600px 미만일때 까지는 label 요소들의 사이즈를 32*32로 지정해 줌. */
+  #ui input[type=radio] + label {
+    width: 32px;
+    height: 32px;
+  }
+}

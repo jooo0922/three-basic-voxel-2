@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./app.js" type="module"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="ui">
+      <div class="tiles">
+        <!-- 
+          지금 각 라디오 인풋 요소에 딸려있는 label 요소에서 background-position값을 지정해주고 있지? 
+          얘는 뭐냐면, 이 label 요소의 배경이미지로 사용할 flourish-cc-by-nc-sa.png 의 위치값을 지정해주는 것.
+          
+          저 퍼센트는 뭘 기준으로 삼냐면, 해당 label 요소의 각각 width, height값을 기준으로, label의 왼쪽 상단에서 얼마만틈 offset 시킬 것인지 정해줌.
+          예를 들어, -100% -0%면, x축으로는 배경이미지를 label의 전체 width만큼 왼쪽으로 이동시키고, y축으로는 그대로 두도록 함.
+
+          이런 식으로 배경이미지가 offset이 되면서 움직이면, 배경이미지들이 왼쪽으로 한칸씩 밀리면서 각 타일 이미지들이 label마다 한칸씩 보이게 하려는 것.
+
+          이렇게 하기 위해서, css 에서는 label의 width, height은 64px로 정해놓고, 배경이미지 사이즈는 label width, height의 각각 1600%, 400%즉, 16배, 4배로 키워줄거임
+          왜냐면, 배경이미지의 한줄에 각 타일이 16개 있으니까 label 하나의 width를 64px로 하려면 배경이미지의 전체 width가 64px * 16 만큼이 되어야
+          라벨마다 -100%씩 배경 이미지를 이동하면 타일 한 칸씩 보이게 될테니까.
+        -->
+        <input type="radio" name="voxel" id="voxel1" value="1" />
+        <label for="voxel1" style="background-position: -0% -0%"></label>
+        <input type="radio" name="voxel" id="voxel2" value="2" />
+        <label for="voxel2" style="background-position: -100% -0%"></label>
+        <input type="radio" name="voxel" id="voxel3" value="3" />
+        <label for="voxel3" style="background-position: -200% -0%"></label>
+        <input type="radio" name="voxel" id="voxel4" value="4" />
+        <label for="voxel4" style="background-position: -300% -0%"></label>
+        <input type="radio" name="voxel" id="voxel5" value="5" />
+        <label for="voxel5" style="background-position: -400% -0%"></label>
+        <input type="radio" name="voxel" id="voxel6" value="6" />
+        <label for="voxel6" style="background-position: -500% -0%"></label>
+        <input type="radio" name="voxel" id="voxel7" value="7" />
+        <label for="voxel7" style="background-position: -600% -0%"></label>
+        <input type="radio" name="voxel" id="voxel8" value="8" />
+        <label for="voxel8" style="background-position: -700% -0%"></label>
+      </div>
+      <div class="tiles">
+        <input type="radio" name="voxel" id="voxel9" value="9" />
+        <label for="voxel9" style="background-position: -800% -0%"></label>
+        <input type="radio" name="voxel" id="voxel10" value="10" />
+        <label for="voxel10" style="background-position: -900% -0%"></label>
+        <input type="radio" name="voxel" id="voxel11" value="11" />
+        <label for="voxel11" style="background-position: -1000% -0%"></label>
+        <input type="radio" name="voxel" id="voxel12" value="12" />
+        <label for="voxel12" style="background-position: -1100% -0%"></label>
+        <input type="radio" name="voxel" id="voxel13" value="13" />
+        <label for="voxel13" style="background-position: -1200% -0%"></label>
+        <input type="radio" name="voxel" id="voxel14" value="14" />
+        <label for="voxel14" style="background-position: -1300% -0%"></label>
+        <input type="radio" name="voxel" id="voxel15" value="15" />
+        <label for="voxel15" style="background-position: -1400% -0%"></label>
+        <input type="radio" name="voxel" id="voxel16" value="16" />
+        <label for="voxel16" style="background-position: -1500% -0%"></label>
+      </div>
+    </div>
+  </body>
+</html>
